@@ -6,16 +6,16 @@ export default class App extends React.Component {
     message: 'Hello'
   }
 
-  /*changeMessage = {newMessage} => {
+  changeMessage (newMessage: string) {
     this.setState({
-      message:newMessage
-    });
-  }*/
+      message: newMessage
+    })
+  }
 
   render() {
     return (
       <Fragment>
-        <button>CLICK!</button>
+        <button onClick={this.changeMessage.bind(this, 'Goodbye')}>CLICK!</button>
         <div>{this.state.message}</div>
       </Fragment>
     );
