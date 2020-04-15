@@ -3,19 +3,27 @@ import "./App.css";
 
 export default class App extends React.Component {
   state = {
-    message: 'Hello'
+    message: " ",
+  };
+
+  changeMessage(newMessage: string) {
+    this.setState({
+      message: newMessage,
+    });
   }
 
-  changeMessage (newMessage: string) {
+  componentDidMount() {
     this.setState({
-      message: newMessage
-    })
+      message: "This use to say 'Hello', but thanks to componentDidMount() it doesn't =("
+    });
   }
 
   render() {
     return (
       <Fragment>
-        <button onClick={this.changeMessage.bind(this, 'Goodbye')}>CLICK!</button>
+        <button onClick={this.changeMessage.bind(this, "Hello")}>
+          CLICK!
+        </button>
         <div>{this.state.message}</div>
       </Fragment>
     );
